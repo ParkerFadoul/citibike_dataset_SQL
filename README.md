@@ -1,6 +1,6 @@
 # 🚲 Citi Bike Trends in NYC with SQL
 
-**By:** Parker Joy Fadoul  
+**By:** Parker Fadoul  
 **Tool:** Google BigQuery  
 **Status:** In Progress
 
