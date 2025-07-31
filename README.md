@@ -36,6 +36,8 @@ This project explores ridership trends in New York City’s Citi Bike program us
 - **Subscribers took significantly more trips** than customers, and their average ride durations were shorter — likely due to commuting.
 - **Riders aged 25–34** were the most active group by far, with over 340,000 trips. The youngest group (18–24) took the fewest rides.
 - **Trip duration remained fairly consistent** across age groups, suggesting ride time is driven more by purpose than age.
+- **Average trip duration peaked around 4pm (~16 minutes)**, with the shortest rides in the early morning — likely due to short commutes vs. longer leisure trips later in the day.
+- **Trip volume peaked during typical commuting hours**, but ride length and ride frequency followed different curves — a contrast that highlights varied rider intentions throughout the day.
 
 ---
 
@@ -59,6 +61,7 @@ This project explores ridership trends in New York City’s Citi Bike program us
 ## 👤 About the Analyst
 
 I'm Parker Fadoul — a certified data analyst with a background in education, performance, and creative leadership. After over two decades of mentoring students and managing programs, I now apply that same problem-solving mindset to data. This project is part of my transition into the data analytics field and showcases my ability to explore, interpret, and present real-world datasets using SQL.
+
 
 🔗 [LinkedIn](https://www.linkedin.com/in/parker-fadoul-63449135b/)  
 🔗 [GitHub](https://github.com/ParkerFadoul)
