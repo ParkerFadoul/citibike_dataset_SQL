@@ -1,77 +1,64 @@
 # 🚲 Citi Bike Trends in NYC with SQL
 
-**By:** Parker Fadoul  
-**Tool:** Google BigQuery  
-**Status:** In Progress
+**By:** Parker Fadoul
 
 ---
 
-## 📌 Overview
+## 📌 Project Overview
 
-This project dives into New York City’s Citi Bike data to explore how, when, and where people ride. Using SQL in Google BigQuery, I’ve written queries to uncover patterns in trip timing, popular stations, rider demographics, and more. It’s part analysis, part curiosity — and fully hands-on.
-
----
-
-## 📊 Key Questions
-
-1. **When are New Yorkers riding?**  
-   Hourly ridership trends initially revealed a spike at **hour 0 (midnight)** — but further investigation showed that many trips had completely null values and were excluded from analysis.
-
-2. **Where do riders go most?**  
-   Which stations are the busiest? I’m starting with top start and end points and planning to expand into **trip pairings** and route patterns.
-
-3. **Who’s riding these bikes?**  
-   I’m segmenting by **age and gender**, grouping riders into bins (e.g., 18–24, 25–34, etc.) and comparing **ride durations** across these groups. Patterns are already emerging.
-
-4. **How long are rides?** *(under review)*  
-   Still exploring this one. I'm testing out trip duration distributions to see what the "typical ride" looks like — or whether that’s even a useful concept.
+This project explores ridership trends in New York City’s Citi Bike program using public data from Google BigQuery. Through SQL-based analysis, I investigated patterns in trip timing, rider demographics, popular routes, and behavioral differences across user types. My goal was to turn raw ride data into insights that reflect how, when, and by whom the system is being used — all while applying real-world analytics techniques.
 
 ---
 
-## 📂 Dataset
+## 📁 Dataset
 
-**Source:**  
-`bigquery-public-data.new_york_citibike.citibike_trips`
-
-**Size:**  
-Tens of millions of trips (depending on date range)
-
-**Key columns:**
-- `starttime`, `stoptime`
-- `start_station_name`, `end_station_name`
-- `tripduration`
-- `birth_year`, `gender`, `usertype`
+- **Source:** `bigquery-public-data.new_york_citibike.citibike_trips`
+- **Focus:** All trips from **July 2015** (chosen for data completeness)
+- **Fields used:** `starttime`, `endtime`, `tripduration`, `start_station_name`, `end_station_name`, `usertype`, `birth_year`, `gender`
 
 ---
 
 ## 🧠 Methods
 
-- SQL queries written and run in BigQuery
-- Aggregations, filtering, date functions, and CASE logic
-- Rider age calculated from birth year, then grouped into custom bins
-- Results manually reviewed and cleaned before summarizing insights
+- SQL queries written and run in **Google BigQuery**
+- Data cleaning, filtering (e.g., removing fully null rows)
+- Aggregations, CASE logic, and date functions
+- Rider age calculated from birth year and grouped into bins
+- Summary statistics interpreted for use in dashboards and storytelling
 
 ---
 
-## 🔍 Early Insights
+## 🔍 Key Insights from July 2015
 
-- The dataset contains ~5.8 million rows that are completely null. These rows have no values in any field and were excluded from all analysis.
-- The most common bike routes often begin or end near transit hubs or parks.
-- Most riders are aged 25–40, with more men riding than women — but **ride duration doesn’t vary much across gender** (still testing this).
-- **Customers take longer trips on average than subscribers**, suggesting tourists or casual users are more exploratory, while subscribers may use bikes for commuting.
+- The dataset contained ~5.8 million **completely null rows**, which were excluded from all analysis.
+- The **most popular routes** connected major transit hubs and park areas.
+- **Hourly trends** were consistent with commuting and recreational patterns; no midnight spike was found after cleaning.
+- **Subscribers took significantly more trips** than customers, and their average ride durations were shorter — likely due to commuting.
+- **Riders aged 25–34** were the most active group by far, with over 340,000 trips. The youngest group (18–24) took the fewest rides.
+- **Trip duration remained fairly consistent** across age groups, suggesting ride time is driven more by purpose than age.
 
 ---
 
-## ⚠️ Limitations
+## ⚠️ Data Limitations
 
-- `gender` is stored as numeric codes (0 = unknown, 1 = male, 2 = female) — limited nuance  
-- `birth_year` has some anomalies — yes, apparently there are some very fit 90-year-old cyclists
-- Current queries don’t yet include seasonality, holidays, or weather effects
+- `gender` is stored as numeric codes (0 = unknown, 1 = male, 2 = female) and lacks nuance
+- `birth_year` contains anomalies (e.g., implausibly old values)
+- Dataset ends in **May 2018**, limiting long-term trend analysis
+- Does not currently incorporate **weather, holidays, or seasonality**
 
 ---
 
 ## 🛠️ Next Steps
 
-- Expand origin-destination trip pair analysis  
-- Visualize findings in Tableau as Part C of this project  
-- Publish cleaned SQL queries and refined summary statistics
+- Add Tableau dashboard to visualize rider patterns and route usage  
+- Publish cleaned SQL queries in a separate `queries.sql` file  
+- Explore seasonal or environmental factors in ridership patterns
+
+---
+
+## 👤 About the Analyst
+
+I'm Parker Fadoul — a certified data analyst with a background in education, performance, and creative leadership. After over two decades of mentoring students and managing programs, I now apply that same problem-solving mindset to data. This project is part of my transition into the data analytics field and showcases my ability to explore, interpret, and present real-world datasets using SQL.
+
+🔗 [LinkedIn](https://www.linkedin.com/in/parker-fadoul-63449135b/)  
+🔗 [GitHub](https://github.com/ParkerFadoul)
