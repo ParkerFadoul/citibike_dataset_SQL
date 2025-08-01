@@ -146,3 +146,18 @@ GROUP BY route
 HAVING trip_count > 100
 ORDER BY avg_duration_minutes DESC
 LIMIT 10;
+
+------------------------------------------------------------
+-- 10. Unknown Gender Ridership by Hour and User Type
+-- Shows how riders labeled as "unknown" gender are distributed by hour and user type (Customer vs. Subscriber)
+------------------------------------------------------------
+SELECT
+  EXTRACT(HOUR FROM starttime) AS hour,
+  usertype,
+  COUNT(*) AS trip_count
+FROM `bigquery-public-data.new_york_citibike.citibike_trips`
+WHERE
+  gender = 'unknown'
+  AND starttime BETWEEN '2015-07-01' AND '2015-07-31'
+GROUP BY hour, usertype
+ORDER BY hour, usertype;
