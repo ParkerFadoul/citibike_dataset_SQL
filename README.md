@@ -6,62 +6,66 @@
 
 ## 📌 Overview
 
-This project explores New York City’s Citi Bike data to uncover how, when, and where people ride. Using SQL in Google BigQuery, I analyzed rider behavior across demographics, trip timing, and route patterns. The goal: dig deeper into the human rhythms behind all those blue bikes.
+This project explores how, when, and where people ride Citi Bikes in New York City. Using SQL in Google BigQuery, I’ve written queries to uncover patterns in trip timing, popular stations, rider demographics, and more. The goal is to extract meaningful, real-world insights from raw transportation data.
 
 ## 📊 Key Questions
 
 1. **When are New Yorkers riding?**  
-   Hourly ridership and trip duration patterns show strong commuting trends — but also some midday and weekend surges worth exploring.
+   Explore hourly trends in ridership to identify when demand peaks.
 
 2. **Where do riders go most?**  
-   Most common routes and busiest stations help identify commuter corridors, tourist paths, and local favorites.
+   Analyze the most frequent routes based on start and end station combinations.
 
 3. **Who’s riding these bikes?**  
-   Segmenting riders by age, gender, and user type reveals clear behavioral differences — especially between casual and subscriber usage.
+   Segment ridership by gender, age group, and user type to understand behavioral patterns.
 
 4. **How long are rides?**  
-   By looking at ride duration distributions and time-of-day effects, I explored how long riders typically keep bikes and when the longest trips occur.
+   Compare average vs. median trip durations and examine trip length distributions.
 
 ## 📂 Dataset
 
 **Source:**  
-`bigquery-public-data.new_york_citibike.citibike_trips`  
-**Date Range Used:** July 2015  
-**Size:** Tens of millions of trips
+`bigquery-public-data.new_york_citibike.citibike_trips`
 
-**Key columns include:**
+**Size:**  
+Millions of rows depending on the date range selected.
+
+**Key columns:**
 - `starttime`, `stoptime`
 - `start_station_name`, `end_station_name`
 - `tripduration`
-- `usertype`, `gender`, `birth_year`
+- `birth_year`, `gender`, `usertype`
 
 ## 🧠 Methods
 
-- SQL queries written and executed in BigQuery  
-- Use of `CASE` statements for custom age bins 
-- Filters applied to cap `tripduration` at 2 hours to remove outliers  
-- Grouping, aggregation, and ordering to summarize trends  
-- Exported to CSV for potential Tableau visualization  
+- SQL queries written and run in Google BigQuery  
+- Date/time extraction, CASE statements, and filtering  
+- Grouped aggregations and duration calculations  
+- Manual data review and cleaning  
+- Exported for Tableau visualization
 
-## 🔍 Key Insights
+## 🔍 Insights
 
-- **Riders aged 25–34** had the highest ridership, followed by 35–44 and 45–54. Youngest (18–24) and oldest (55+) rode least.  
-- **Customers ride longer than Subscribers**, often several minutes more per trip.  
-- **Trip duration peaks around 4pm**, possibly indicating leisure or end-of-day travel.  
-- **Riders with gender labeled 'unknown' were mostly Customers**, and they had **the longest average trip durations**. These are likely casual riders or tourists who do not provide demographic details.  
-- The dataset includes **~5.8 million fully null rows**, which were excluded from all analysis.  
+- **Hourly Trends:** Ridership peaks around 8–9am and 5–6pm. Average ride duration peaks mid-afternoon.
+- **Age Group:** Most riders fall between 25–44 years old, and younger riders (18–24) take the shortest rides.
+- **Gender:** Women ride less at night than men, especially after 8pm. A strong candidate for further safety or access research.
+- **User Type:** Customers (casual riders) have longer average trip times than subscribers.
+- **Outliers:** Trip duration data is heavily skewed. Median trip duration (~10.45 mins) is much lower than the average (~13.91 mins).
+- **Routes:** Common routes tend to be short and direct, but some longer average-duration routes may suggest scenic or casual trips.
+- **Unknown Gender Riders:** The majority of riders listed as “unknown” gender are Customers, not Subscribers. They tend to take longer trips and are especially active in the afternoon and evening, possibly reflecting tourist behavior or non-disclosure.
 
 ## ⚠️ Limitations
 
-- `birth_year` has some outliers and unrealistic values (filtered to 1920–2000)  
-- `gender` is limited to `'male'`, `'female'`, `'unknown'`, which lacks nuance  
-- Only a single month (July 2015) was used to reduce data volume for testing — further months could reveal seasonal patterns  
+- Gender data is categorical (`male`, `female`, `unknown`) and self-reported or system-limited.
+- Birth years have anomalies, with some riders appearing implausibly old or young.
+- Weather, day-of-week, and seasonal factors not yet included.
+- Outliers with extremely long durations may reflect undocked bikes or data errors.
 
 ## 📈 Next Steps
 
-- Visualize trip duration and ride volume by hour in Tableau  
-- Explore route popularity by Customer vs. Subscriber  
-- Examine temporal changes by comparing multiple years  
+- Build Tableau dashboards to visualize key findings  
+- Investigate seasonality and weather overlays  
+- Continue exploring trip pairings and map-based visualizations
 
 ## 👤 About the Analyst
 
