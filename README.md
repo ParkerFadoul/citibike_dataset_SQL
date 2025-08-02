@@ -6,21 +6,21 @@
 
 ## 📌 Overview
 
-This project explores how, when, and where people ride Citi Bikes in New York City. Using SQL in Google BigQuery, I’ve written queries to uncover patterns in trip timing, popular stations, rider demographics, and more. The goal is to extract meaningful, real-world insights from raw transportation data.
+This project explores when, where, and how people ride Citi Bikes in New York City. Using SQL in Google BigQuery, I analyze trip timing, route patterns, and rider demographics to uncover real-world behavioral insights from raw transportation data.
 
 ## 📊 Key Questions
 
 1. **When are New Yorkers riding?**  
-   Explore hourly trends in ridership to identify when demand peaks.
+   What times of day see the most activity?
 
 2. **Where do riders go most?**  
-   Analyze the most frequent routes based on start and end station combinations.
+   What are the most common start-to-end station routes?
 
 3. **Who’s riding these bikes?**  
-   Segment ridership by gender, age group, and user type to understand behavioral patterns.
+   How do age, gender, and user type influence trip patterns?
 
 4. **How long are rides?**  
-   Compare average vs. median trip durations and examine trip length distributions.
+   What do average and median trip durations reveal about rider behavior?
 
 ## 📂 Dataset
 
@@ -46,31 +46,30 @@ Millions of rows depending on the date range selected.
 
 ## 🔍 Insights
 
-- **Hourly Trends:** Ridership peaks around 8–9am and 5–6pm. Average ride duration peaks mid-afternoon.
-- **Age Group:** Most riders fall between 25–44 years old, and younger riders (18–24) take the shortest rides.
-- **Gender:** Women ride less at night than men, especially after 8pm. A strong candidate for further safety or access research.
-- **User Type:** Customers (casual riders) have longer average trip times than subscribers.
-- **Outliers:** Trip duration data is heavily skewed. Median trip duration (~10.45 mins) is much lower than the average (~13.91 mins).
-- **Routes:** Common routes tend to be short and direct, but some longer average-duration routes may suggest scenic or casual trips.
-- **Unknown Gender Riders:** The majority of riders listed as “unknown” gender are Customers, not Subscribers. They tend to take longer trips and are especially active in the afternoon and evening, possibly reflecting tourist behavior or non-disclosure.
+- **Hourly Trends:** Ridership peaks during commute hours (8–9am, 5–6pm). Average ride time is longest mid-afternoon.
+- **Age Group:** Most riders are 25–44. Younger users (18–24) take shorter trips on average.
+- **Gender Patterns:** Women ride significantly less than men at night, especially after 8pm — suggesting possible safety or access concerns.
+- **User Type:** Customers (non-subscribers) take longer trips than Subscribers, particularly during afternoons.
+- **Outliers:** Trip durations are skewed. Median duration (~10.45 mins) is notably lower than the average (~13.91 mins).
+- **Routes:** High-volume routes tend to be short and direct. Longer average-duration routes may reflect sightseeing or casual rides.
+- **Unknown Gender Riders:** Most “unknown” riders are Customers rather than Subscribers. They take longer rides and are especially active in the afternoon and evening — possibly tourists or riders who declined to disclose gender.
 
 ## ⚠️ Limitations
 
-- Gender data is categorical (`male`, `female`, `unknown`) and self-reported or system-limited.
-- Birth years have anomalies, with some riders appearing implausibly old or young.
-- Weather, day-of-week, and seasonal factors not yet included.
-- Outliers with extremely long durations may reflect undocked bikes or data errors.
+- Gender is stored as categorical values (`male`, `female`, `unknown`) and may be system-generated or self-reported.
+- Birth year data includes anomalies with implausibly old or young riders.
+- Weather, day-of-week, and seasonal effects are not yet factored in.
+- Long-duration outliers may reflect undocked bikes or data quality issues.
 
 ## 📈 Next Steps
 
 - Build Tableau dashboards to visualize key findings  
-- Investigate seasonality and weather overlays  
-- Continue exploring trip pairings and map-based visualizations
+- Explore seasonality and weather effects  
+- Analyze trip pairings and map-based routes
 
 ## 👤 About the Analyst
 
-I'm Parker Fadoul — a certified data analyst with a background in education, performance, and creative leadership. After over two decades of mentoring students and managing programs, I now apply that same problem-solving mindset to data. This project is part of my transition into the data analytics field and showcases my ability to explore, interpret, and present real-world datasets using SQL.
-
+I’m Parker Fadoul — a certified data analyst transitioning from a 20+ year career in the performing arts. I bring a deep background in education, mentorship, and creative leadership to data storytelling and analysis. This project showcases my ability to explore, interpret, and communicate insights from complex datasets using SQL.
 
 🔗 [LinkedIn](https://www.linkedin.com/in/parker-fadoul-63449135b/)  
 🔗 [GitHub](https://github.com/ParkerFadoul)
